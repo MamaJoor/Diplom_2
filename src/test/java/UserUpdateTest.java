@@ -6,16 +6,16 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class UserUpdateTest extends API_methods{
-    CreateUser user;
-    API_methods methods;
+public class UserUpdateTest extends ApiMethods {
+    User user;
+    ApiMethods methods;
     private String token;
 
     @Before
     public void setup() {
         RestAssured.baseURI = BASE_URL;
-        user = CreateUser.getUser();
-        methods = new API_methods();
+        user = User.getUser();
+        methods = new ApiMethods();
         token = methods.createRandomUser(user)
                 .extract().path("accessToken");
     }

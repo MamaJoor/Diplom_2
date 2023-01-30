@@ -2,7 +2,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import static io.restassured.RestAssured.given;
 
-public class API_methods {
+public class ApiMethods {
     private final String REGISTER = "/auth/register";
     private final String USER = "/auth/user";
     private final String LOGIN = "/auth/login";
@@ -40,7 +40,7 @@ public class API_methods {
     }
 
     @Step("Создать случайного пользователя")
-    public ValidatableResponse createRandomUser(CreateUser user) {
+    public ValidatableResponse createRandomUser(User user) {
         return given().log().all()
                 .header("Content-Type", "application/json")
                 .body(user)
@@ -50,7 +50,7 @@ public class API_methods {
     }
 
     @Step("Удалить пользователя")
-    public ValidatableResponse deleteUser(CreateUser user, String token) {
+    public ValidatableResponse deleteUser(User user, String token) {
         return given().log().all()
                 .header("Content-Type", "application/json")
                 .header("Authorization",token)
@@ -71,7 +71,7 @@ public class API_methods {
     }
 
     @Step("Изменить данные пользователя")
-    public ValidatableResponse changeDataUser(CreateUser user, String token) {
+    public ValidatableResponse changeDataUser(User user, String token) {
         return given().log().all()
                 .header("Content-Type", "application/json")
                 .header("Authorization",token)

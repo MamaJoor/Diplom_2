@@ -11,7 +11,7 @@ public class UserCredential {
         this.name = name;
     }
 
-    public static UserCredential from(CreateUser user) {
+    public static UserCredential from(User user) {
         return new UserCredential(user.getEmail(), user.getPassword(), user.getName());
     }
 

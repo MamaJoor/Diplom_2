@@ -6,9 +6,9 @@ import org.junit.Test;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.equalTo;
 
-public class CreateOrdersTest extends API_methods{
-    CreateUser user;
-    API_methods methods;
+public class CreateOrdersTest extends ApiMethods {
+    User user;
+    ApiMethods methods;
     private String token;
     private List<String> list;
 
@@ -16,8 +16,8 @@ public class CreateOrdersTest extends API_methods{
     @Before
     public void setup() {
         RestAssured.baseURI = BASE_URL;
-        user = CreateUser.getUser();
-        methods = new API_methods();
+        user = User.getUser();
+        methods = new ApiMethods();
                 token = methods.createRandomUser(user)
                 .extract().path("accessToken");
         list = methods.getIngredients()
